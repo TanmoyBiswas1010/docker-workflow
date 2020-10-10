@@ -12,7 +12,7 @@ deploy:
   provider: elasticbeanstalk
   region: "ap-south-1"
   app: "docker-workflow"
-  env: "docker-workflow-env"
+  env: "DockerWorkflow-env"
   bucket_name: "elasticbeanstalk-ap-south-1-880750458821" #travis will zip all files from git and send to this s3 bucket
   bucket_path: "docker-workflow" #by default it will be app name1
   on:

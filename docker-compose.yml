@@ -1,0 +1,20 @@
+version: "3"
+services:
+  web: #serice1
+    stdin_open: true
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - /app/node_modules #map Nothing with app/node_modules (/node_modules) let it be
+      - .:/app #map PWD with app (.:/app)
+  tests: #serice2
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - .:/app
+    command: ["npm", "run", "test"]

@@ -1,0 +1,9 @@
+sudo: required #superuser permission needed to execute the build
+services:
+  - docker #need a running docker ready to go
+
+before_install: #Todo before deploying or running tests
+  - docker buil -t dockerTag -f Dockerfile.dev .
+
+script:
+  - docker run dockerTag npm run tests -- --coverage

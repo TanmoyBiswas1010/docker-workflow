@@ -6,4 +6,4 @@ before_install: #Todo before deploying or running tests
   - docker build -t docker-workflow -f Dockerfile.dev .
 
 script:
-  - docker run docker-workflow npm run test -- --coverage
+  - docker run docker-workflow npm run test

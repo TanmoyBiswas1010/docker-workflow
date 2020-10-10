@@ -3,10 +3,10 @@ services:
   - docker #need a running docker ready to go
 
 before_install: #Todo before deploying or running tests
-  - docker build -t docker-workflow -f Dockerfile.dev .
+  - docker build -t docker-workflow-tag -f Dockerfile.dev .
 
 script:
-  - docker run -e CI=true docker-workflow npm run test
+  - docker run -e CI=true docker-workflow-tag npm run test
 
 deploy:
   provider: elasticbeanstalk
@@ -19,4 +19,4 @@ deploy:
     branch: master
   access_key_id: $ACCESS_KEY
   secret_access_key:
-    secure: "$SECRET"
+    secure: $SECRET
